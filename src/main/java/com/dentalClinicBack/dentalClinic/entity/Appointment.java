@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "TURNOS")
+@Table(name = "TURNS")
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,10 +12,10 @@ private Long id;
 private LocalDateTime dateAndTime;
 
     @ManyToOne
-    @JoinColumn(name = "odontologo_id")
+    @JoinColumn(name = "dentist_id")
 private Dentist dentist;
     @ManyToOne
-    @JoinColumn(name = "paciente_id")
+    @JoinColumn(name = "patient_id")
 private Patient patient;
 
 

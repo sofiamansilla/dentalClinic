@@ -3,7 +3,7 @@ package com.dentalClinicBack.dentalClinic.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "DOMICILIOS")
+@Table(name = "ADDRESSES")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

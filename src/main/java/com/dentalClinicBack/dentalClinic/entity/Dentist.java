@@ -4,7 +4,7 @@ package com.dentalClinicBack.dentalClinic.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ODONTOLOGOS")
+@Table(name = "DENTISTS")
 public class Dentist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
