@@ -1,11 +1,20 @@
 package com.dentalClinicBack.dentalClinic.entity;
 
-public class Address {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "DOMICILIOS")
+public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(length = 50)
     private String street;
+    @Column(length = 50)
     private int number;
+    @Column(length = 50)
     private String city;
+    @Column(length = 50)
     private String province;
 
 

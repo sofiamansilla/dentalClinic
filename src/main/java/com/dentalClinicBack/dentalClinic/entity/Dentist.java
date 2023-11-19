@@ -1,11 +1,20 @@
 package com.dentalClinicBack.dentalClinic.entity;
 
-public class Dentist {
 
-private Long id;
-private String licenceNumber;
-private String name;
-private String lastName;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "ODONTOLOGOS")
+public class Dentist {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(length = 50)
+    private String licenceNumber;
+    @Column(length = 50)
+    private String name;
+    @Column(length = 50)
+    private String lastName;
 
 
     /*Builders (an empty one, a full one and another without id*/
@@ -20,7 +29,8 @@ private String lastName;
         this.lastName = lastName;
     }
 
-    public Dentist(Long id, String licenceNumber, String name, String lastName) {
+    public Dentist(Long id, String licenceNumber, String name,
+                   String lastName) {
         this.id = id;
         this.licenceNumber = licenceNumber;
         this.name = name;

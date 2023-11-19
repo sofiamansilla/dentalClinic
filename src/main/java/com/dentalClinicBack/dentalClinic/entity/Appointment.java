@@ -1,12 +1,21 @@
 package com.dentalClinicBack.dentalClinic.entity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "TURNOS")
 public class Appointment {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
 private LocalDateTime dateAndTime;
+
+    @ManyToOne
+    @JoinColumn(name = "odontologo_id")
 private Dentist dentist;
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
 private Patient patient;
 
 
@@ -73,4 +82,9 @@ private Patient patient;
                 ", patient=" + patient +
                 '}';
     }
+
+
+
+
+
 }

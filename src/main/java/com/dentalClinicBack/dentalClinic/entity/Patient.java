@@ -1,14 +1,27 @@
 package com.dentalClinicBack.dentalClinic.entity;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 
+@Entity
+@Table(name = "PACIENTES")
 public class Patient {
 
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO) /*PROBAR SACAR EL STRATEGY*/
     private Long id;
+
+    @Column(length = 50)
     private String name;
+    @Column(length = 50)
     private String lastName;
+    @Column(length = 50)
     private String dni;
+
     private LocalDate dateOfEntry;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "address")
     private Address address;
 
     /*Builders (an empty one, a full one and another without id*/
@@ -16,7 +29,8 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String name, String lastName, String dni, LocalDate dateOfEntry, Address address) {
+    public Patient(String name, String lastName, String dni,
+                   LocalDate dateOfEntry, Address address) {
         this.name = name;
         this.lastName = lastName;
         this.dni = dni;
@@ -24,7 +38,8 @@ public class Patient {
         this.address = address;
     }
 
-    public Patient(Long id, String name, String lastName, String dni, LocalDate dateOfEntry, Address address) {
+    public Patient(Long id, String name, String lastName, String dni,
+                   LocalDate dateOfEntry, Address address) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
